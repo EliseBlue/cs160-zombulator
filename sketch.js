@@ -1,39 +1,28 @@
 // Zombulator by Brook Elise Blue
 
+var zombieY = 100;
+var zombieV = 0;
+var zombieA = 0.2;
+var zombieDamping = -0.5;
+var zombieSize = 80;
+var zombieColor;
+var backgroundColor;
+
 function setup() {
-	createCanvas(1000, 1000);
+	createCanvas(windowWidth, windowHeight);
+	backgroundColor = color(204, 255, 204);
+	zombieColor = color(174, 120, 174);
 }
 
-var zombieX = 550; 
-var zombie2X = 55;
-var zombie3X = 175;
-var zombie4X = 700;
-
 function draw() {
-	background(0, 0, 0	);
-	fill(200, 100, 30);
-	strokeWeight(8);
-	stroke(0, 204, 204);
-	ellipse(zombieX, 300, 200, 200);
-	fill(150, 150, 200);
-	ellipse(zombie2X, 200, 100, 100);
-	fill(100, 150, 150);
-	ellipse(zombie3X, 140, 50, 50);
-	fill(120 ,40, 100);
-	ellipse(zombie4X, 500, 80, 80);
-	fill(100, 60, 75);
-	ellipse(200, 250, 20, 20);
-	fill(400, 70, 100);
-	ellipse(400, 100, 120, 120);
-	fill(800, 200, 150);
-	ellipse(320, 600, 450, 450);
-	zombieX = zombieX - 10;
-	zombie2X = zombie2X + 60;
-	zombie3X = zombie3X + 10;
-	zombie4X = zombie4X +5;
-	if (zombie2X >= 1000) {
-		zombie2X = 0;
-
-		}
-	}
-
+	background(backgroundColor);
+	noStroke();
+	fill(zombieColor);
+	ellipse(windowWidth / 2, zombieY, zombieSize, zombieSize);
+	zombieY += zombieV;
+	zombieV += zombieA;
+	if (zombieY + (zombieSize / 2) >= windowHeight);
+		zombieY = windowHeight - (zombieSize);
+		zombieV *= zombieDamping;
+		zombieSize *= 0.8;
+}
