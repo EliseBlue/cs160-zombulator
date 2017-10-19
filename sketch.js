@@ -9,68 +9,68 @@ const MAX_SIZE = 500;
 const NUMBER_OF_ZOMBIES = 10;
 const NUMBER_OF_HUMANS = 10;
 
-var zombieX;
-var zombieY;
+var zombieXs;
+var zombieYs;
 var zombieSize;
 var zombieColor;
 
-var humanX;
-var humanY;
+var humanXs;
+var humanYs;
 var humanSize;
 var humanColor;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   backgroundColor = color(245, 255, 245);
-  initializeZombie();
-  initializeHuman();
+  initializeZombies();
+  initializeHumans();
 }
 
 function draw() {
   background(backgroundColor);
   noStroke();
 
-  drawZombie();
-  drawHuman();
+  drawZombies();
+  drawHumans();
 }
 
-function initializeZombie() {
-  zombieX = [];
-  zombieY = [];
+function initializeZombies() {
+  zombieXs = [];
+  zombieYs = [];
   zombieSize = [];
   zombieColor = [];
   for (var i = 0; i < NUMBER_OF_ZOMBIES; ++i) {
-      zombieX[i] = random(0, windowWidth);
-      zombieY[i] = random(0, 150);
+      zombieXs[i] = random(0, windowWidth);
+      zombieYs[i] = random(0, 150);
       zombieSize[i] = random(MIN_SIZE, MAX_SIZE);
       zombieColor[i] = color(random(50, 150), random(50, 150), random(50, 150), 150);
   }
 }
 
-function initializeHuman() {
-  humanX = [];
-  humanY = [];
+function initializeHumans() {
+  humanXs = [];
+  humanYs = [];
   humanSize = [];
   humanColor = [];
   for (var i = 0; i < NUMBER_OF_HUMANS; ++i) {
-      humanX[i] = random(0, windowWidth);
-      humanY[i] = random(windowHeight - 200, windowHeight);
+      humanXs[i] = random(0, windowWidth);
+      humanYs[i] = random(windowHeight - 200, windowHeight);
       humanSize[i] = random(MIN_SIZE, MAX_SIZE);
       humanColor[i] = color(random(150,255), random (150,255), random(150,255), 150);
   }
 }
 
-function drawZombie() {
+function drawZombies() {
   for (var i = 0; i < NUMBER_OF_ZOMBIES; ++i) {
     fill(zombieColor[i]);
-    ellipse(zombieX[i], zombieY[i], zombieSize[i], zombieSize[i]);
+    ellipse(zombieXs[i], zombieYs[i], zombieSize[i], zombieSize[i]);
   }
 }
 
-function drawHuman() {
+function drawHumans() {
   for (var i = 0; i < NUMBER_OF_HUMANS; ++i) {
     fill(humanColor[i]);
-    ellipse(humanX[i], humanY[i], humanSize[i], humanSize[i]);
+    ellipse(humanXs[i], humanYs[i], humanSize[i], humanSize[i]);
   }
 
 }
