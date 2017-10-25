@@ -10,7 +10,6 @@ const NUMBER_OF_ZOMBIES = 100;
 const NUMBER_OF_HUMANS = 100;
 
 var zombies;
-
 var humans;
 
 function setup() {
@@ -25,6 +24,7 @@ function draw() {
   noStroke();
   drawZombies();
   drawHumans();
+  moveHumans();
 }
 
 function initializeZombies() {
@@ -63,25 +63,34 @@ function initializeHuman(index) {
 
 function drawZombies() {
   for (var i = 0; i < NUMBER_OF_ZOMBIES; ++i) {
-    drawZombie(i);
+    drawZombie(zombies[i]);
   }
 }
 
-function drawZombie(index) {
-  var zombie = zombies[index];
+function drawZombie(zombie) {
   fill(zombie.color);
   ellipse(zombie.x, zombie.y, zombie.size, zombie.size);
 }
 
 function drawHumans() {
   for (var i = 0; i < NUMBER_OF_HUMANS; ++i) {
-    drawHuman(i);
+    drawHuman(humans[i]);
   }
 }
 
-function drawHuman(index) {
-  var human = humans[index];
+function drawHuman(human) {
   fill(human.color);
   ellipse(human.x, human.y, human.size, human.size);
+}
+
+function moveHumans() {
+  for (var i = 0; i < NUMBER_OF_HUMANS; ++i) {
+    moveHuman(humans[i]);
+  }
+}
+
+function moveHuman(human) {
+    human.y -=random(1, 2);
+    human.x +=random (-3, 3);
 }
 
