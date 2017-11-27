@@ -3,6 +3,7 @@
 // CS 160 Exercise 20: Collision
 
 var backgroundColor;
+//var myMusic;
 
 const MIN_SIZE = 5;
 const MAX_SIZE = 45;
@@ -16,9 +17,17 @@ var humanCount = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  backgroundColor = color(245, 255, 245);
+  backgroundColor = color(235, 222, 240);
   initalizePopulation();
 }
+
+//function initalizeMusic() {
+ // myMusic = new sound("ZombieSong.mp3");
+  //myMusic.play();
+//}
+
+
+  
 
 function draw() {
   background(backgroundColor);
@@ -44,9 +53,10 @@ function handleCollisions() {
 
 function drawPopulationCounts(){
   stroke(0);
-  textSize(72);
-  textAlign(CENTER);
+  textSize(62);
+  textAlign(RIGHT);
   text("Zombies: " + zombieCount, width / 2, 70);
+  textAlign(LEFT);
   text("Humans: " + humanCount, width / 2, height - 50);
 }
 
@@ -98,7 +108,7 @@ function initializeZombie() {
     },
     draw: function() {
       fill(this.color);
-      ellipse(this.x, this.y, this.size, this.size);
+      rect(this.x, this.y, this.size, this.size);
     },
     isTouching: function(target) {
       if (this.humanoidType == target.humanoidType) return false;
