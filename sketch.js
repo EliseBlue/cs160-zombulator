@@ -5,7 +5,7 @@
 var backgroundColor;
 
 const MIN_SIZE = 5;
-const MAX_SIZE = 4  5;
+const MAX_SIZE = 45;
 const POPULATION_SIZE = 650;
 
 
@@ -116,7 +116,7 @@ function initializeHuman(index) {
     y: random(windowHeight - 200, windowHeight),
     speed: random(0.25, 3),
     size: random(MIN_SIZE, MAX_SIZE),
-    color: color(random(50, 150), random(50, 150), random(150, 255), 150),
+    color: color(random(10, 250), random(100, 150), random(15, 150), 150),
     move: function() {
       var direction = random(0, 100);
       if (direction < 20) {
