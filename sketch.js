@@ -5,8 +5,8 @@
 var backgroundColor;
 
 const MIN_SIZE = 5;
-const MAX_SIZE = 50;
-const POPULATION_SIZE = 500;
+const MAX_SIZE = 4  5;
+const POPULATION_SIZE = 650;
 
 
 var population = [];
@@ -40,11 +40,6 @@ function handleCollisions() {
     }
   }
 }
-
-
-
-
-
 
 
 function drawPopulationCounts(){
@@ -88,7 +83,7 @@ function initializeZombie() {
     y: random(0, 200),
     speed: random(0.25, 3),
     size: random(MIN_SIZE, MAX_SIZE),
-    color: color(random(100, 255), random(50, 150), random(50, 150), 150),
+    color: color(random(250, 455), random(50, 150), random(50, 150), 150),
     move: function() {
       var direction = random(0, 100);
       if (direction < 20) {
